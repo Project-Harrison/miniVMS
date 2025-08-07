@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +16,7 @@ body {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 20px;
 }
 
 .main-layout {
@@ -42,29 +43,33 @@ body {
 
 .form-container h2 {
   color: #2c3e50;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   font-size: 1.3rem;
   font-weight: 500;
 }
 
 .port-group {
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 20px;
   background: #f8f9fa;
   border-radius: 8px;
   border-left: 3px solid #4a90e2;
 }
 
+.port-group:last-of-type {
+  margin-bottom: 20px;
+}
+
 .port-group h3 {
   color: #495057;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 1.1rem;
   font-weight: 600;
 }
 
 .input-row {
   display: flex;
-  gap: 15px;
+  gap: 20px;
 }
 
 .input-group {
@@ -130,13 +135,12 @@ input[type="text"]::placeholder {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  margin-bottom: 20px;
 }
 
 .port-card, .route-info-card {
   background: white;
   border-radius: 10px;
-  padding: 16px;
+  padding: 20px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   min-height: 140px;
   transition: all 0.3s ease;
@@ -149,7 +153,7 @@ input[type="text"]::placeholder {
 
 .port-card h3, .route-info-card h3 {
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 1.2rem;
   font-weight: 600;
   padding-bottom: 8px;
@@ -217,11 +221,12 @@ input[type="text"]::placeholder {
 /* Route Information */
 .route-info-card {
   grid-column: 1 / -1;
+  margin-top: 20px;
 }
 
 .distance-display {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .distance-value {
@@ -233,7 +238,7 @@ input[type="text"]::placeholder {
 
 .travel-times h4 {
   color: #495057;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 1.1rem;
   text-align: center;
 }
@@ -241,12 +246,12 @@ input[type="text"]::placeholder {
 .time-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 20px;
 }
 
 .time-item {
   background: #f8f9fa;
-  padding: 15px;
+  padding: 20px;
   border-radius: 8px;
   text-align: center;
   border: 2px solid transparent;
@@ -277,13 +282,14 @@ input[type="text"]::placeholder {
 .map-section {
   background: white;
   border-radius: 12px;
-  padding: 18px;
+  padding: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  margin-top: 20px;
 }
 
 .map-section h3 {
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
@@ -322,7 +328,7 @@ input[type="text"]::placeholder {
 
 .map-placeholder-content p:first-child {
   font-size: 4rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .map-placeholder-content p:last-child {
@@ -352,12 +358,12 @@ input[type="text"]::placeholder {
 
 @media (max-width: 768px) {
   .container {
-    padding: 15px;
+    padding: 20px;
   }
 
   .input-row {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
   }
 
   .form-container, .port-card, .route-info-card, .map-section {
