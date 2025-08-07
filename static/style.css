@@ -22,8 +22,9 @@ body {
 .main-layout {
   display: grid;
   grid-template-columns: 350px 1fr;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 20px;
+  align-items: start;
 }
 
 /* Form Section */
@@ -129,6 +130,7 @@ input[type="text"]::placeholder {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 40px;
 }
 
 .port-results {
