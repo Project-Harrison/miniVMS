@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4a90e2 0%, #2c5aa0 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   color: #333;
@@ -52,7 +52,7 @@ body {
   padding: 15px;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 3px solid #667eea;
+  border-left: 3px solid #4a90e2;
 }
 
 .port-group h3 {
@@ -91,8 +91,8 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 
 input[type="text"]::placeholder {
@@ -100,7 +100,7 @@ input[type="text"]::placeholder {
 }
 
 .search-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4a90e2 0%, #2c5aa0 100%);
   color: white;
   padding: 15px 30px;
   font-size: 16px;
@@ -116,7 +116,7 @@ input[type="text"]::placeholder {
 
 .search-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
 }
 
 /* Results Section */
@@ -152,7 +152,7 @@ input[type="text"]::placeholder {
   font-size: 1.2rem;
   font-weight: 600;
   padding-bottom: 8px;
-  border-bottom: 2px solid #667eea;
+  border-bottom: 2px solid #4a90e2;
 }
 
 .origin-port h3 {
@@ -226,7 +226,7 @@ input[type="text"]::placeholder {
 .distance-value {
   font-size: 2rem;
   font-weight: 700;
-  color: #667eea;
+  color: #4a90e2;
   display: block;
 }
 
@@ -253,7 +253,7 @@ input[type="text"]::placeholder {
 }
 
 .time-item:hover {
-  border-color: #667eea;
+  border-color: #4a90e2;
   background: #e3f2fd;
 }
 
