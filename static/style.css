@@ -17,101 +17,107 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  padding: 16px;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .header h1 {
   color: white;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 600;
   margin: 0;
+  letter-spacing: -0.5px;
 }
 
 .main-content {
   flex: 1;
   display: grid;
-  grid-template-columns: 300px 1fr 1fr;
-  gap: 15px;
-  height: calc(100vh - 60px);
+  grid-template-columns: 280px 1fr 1fr;
+  gap: 20px;
+  height: calc(100vh - 80px);
 }
 
 /* Form Section - Left Column */
 .form-section {
   background: white;
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
 }
 
 .form-container h2 {
-  color: #2c3e50;
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
 }
 
 .port-group {
-  margin-bottom: 10px;
-  padding: 8px;
-  background: #f8f9fa;
-  border-left: 3px solid #4a90e2;
+  margin-bottom: 16px;
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 
 .port-group h3 {
-  color: #495057;
-  margin-bottom: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  color: #666;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .input-group {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .input-group label {
-  margin-bottom: 4px;
-  font-weight: 500;
-  color: #495057;
+  margin-bottom: 6px;
+  font-weight: 400;
+  color: #888;
   font-size: 0.8rem;
   display: block;
 }
 
 input[type="text"] {
   width: 100%;
-  padding: 6px 8px;
-  border: 2px solid #e9ecef;
-  border-radius: 5px;
-  font-size: 12px;
-  transition: all 0.3s ease;
-  background: white;
+  padding: 12px 14px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  background: #fafafa;
+  font-weight: 400;
 }
 
 input[type="text"]:focus {
   outline: none;
   border-color: #4a90e2;
-  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.05);
 }
 
 .search-btn {
   width: 100%;
-  background: linear-gradient(135deg, #4a90e2 0%, #2c5aa0 100%);
+  background: #4a90e2;
   color: white;
-  padding: 10px;
+  padding: 14px;
   border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 500;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
   margin-top: auto;
 }
 
@@ -124,99 +130,107 @@ input[type="text"]:focus {
 .results-section {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
 .port-card {
   background: white;
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.05);
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
 }
 
 .port-card h3 {
-  color: #2c3e50;
-  margin-bottom: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #4a90e2;
+  color: white;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #4a90e2;
 }
 
 .origin-port h3 {
-  border-bottom-color: #28a745;
+  background: #28a745;
 }
 
 .destination-port h3 {
-  border-bottom-color: #dc3545;
+  background: #dc3545;
 }
 
 .port-content {
   flex: 1;
+  padding: 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .port-info-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   width: 100%;
 }
 
 .info-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 4px 0;
-  border-bottom: 1px solid #e9ecef;
-  font-size: 0.85rem;
-}
-
-.info-item:last-child {
-  border-bottom: none;
+  align-items: flex-start;
+  padding: 0;
+  border: none;
+  font-size: 0.8rem;
 }
 
 .label {
-  font-weight: 600;
-  color: #6c757d;
+  font-weight: 500;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-size: 0.7rem;
+  min-width: 80px;
 }
 
 .value {
-  font-weight: 500;
-  color: #2c3e50;
+  font-weight: 400;
+  color: #333;
   text-align: right;
+  flex: 1;
 }
 
 .placeholder, .no-match {
   text-align: center;
-  color: #6c757d;
-  font-style: italic;
-  font-size: 0.9rem;
+  color: #999;
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 400;
 }
 
 .no-match {
   color: #dc3545;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* Map and Route Section - Right Column */
 .map-and-route {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
 .route-info-card {
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  height: 200px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+  height: 180px;
+  border: 1px solid #f0f0f0;
 }
 
 .route-info-card h3 {
@@ -285,24 +299,30 @@ input[type="text"]:focus {
 
 .map-section {
   background: white;
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 0;
+  border-radius: 12px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.05);
   flex: 1;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
 }
 
 .map-section h3 {
-  color: #2c3e50;
-  margin-bottom: 10px;
-  font-size: 1rem;
-  font-weight: 600;
+  color: white;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
   text-align: center;
+  padding: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #6c757d;
 }
 
 .map-container {
   overflow: hidden;
-  background: #f8f9fa;
-  height: calc(100% - 40px);
+  background: #fafafa;
+  height: calc(100% - 44px);
 }
 
 .map-wrapper {
