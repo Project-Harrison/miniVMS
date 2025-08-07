@@ -36,7 +36,7 @@ body {
 .main-content {
   flex: 1;
   display: grid;
-  grid-template-columns: 280px 1fr 1fr;
+  grid-template-columns: 280px 320px 2fr;
   gap: 20px;
   height: calc(100vh - 80px);
 }
@@ -130,22 +130,18 @@ input[type="text"]:focus {
 .results-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-.port-card {
+.combined-ports-card {
   background: white;
-  padding: 0;
   border-radius: 12px;
   box-shadow: 0 1px 10px rgba(0,0,0,0.05);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
   border: 1px solid #f0f0f0;
+  height: 100%;
 }
 
-.port-card h3 {
+.combined-ports-card h3 {
   color: white;
   margin: 0;
   font-size: 0.8rem;
@@ -156,11 +152,38 @@ input[type="text"]:focus {
   background: #4a90e2;
 }
 
-.origin-port h3 {
+.ports-grid {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 44px);
+}
+
+.port-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.port-section:last-child {
+  border-bottom: none;
+}
+
+.port-section h4 {
+  color: white;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.origin-section h4 {
   background: #28a745;
 }
 
-.destination-port h3 {
+.destination-section h4 {
   background: #dc3545;
 }
 

@@ -46,75 +46,80 @@
       </div>
     </div>
 
-    <!-- Middle Column: Port Results -->
+    <!-- Middle Column: Combined Port Results -->
     <div class="results-section">
-      <div class="port-card origin-port">
-        <h3>Origin Port</h3>
-        <div class="port-content">
-          {% if result1 %}
-            {% if result1 != "No match found for Port 1." %}
-              <div class="port-details">
-                {% set port1 = result1 | from_json %}
-                <div class="port-info-grid">
-                  <div class="info-item">
-                    <span class="label">City:</span>
-                    <span class="value">{{ port1.CITY }}</span>
+      <div class="combined-ports-card">
+        <h3>Port Information</h3>
+        <div class="ports-grid">
+          <div class="port-section origin-section">
+            <h4>Origin Port</h4>
+            <div class="port-content">
+              {% if result1 %}
+                {% if result1 != "No match found for Port 1." %}
+                  <div class="port-details">
+                    {% set port1 = result1 | from_json %}
+                    <div class="port-info-grid">
+                      <div class="info-item">
+                        <span class="label">City:</span>
+                        <span class="value">{{ port1.CITY }}</span>
+                      </div>
+                      <div class="info-item">
+                        <span class="label">State:</span>
+                        <span class="value">{{ port1.STATE }}</span>
+                      </div>
+                      <div class="info-item">
+                        <span class="label">Country:</span>
+                        <span class="value">{{ port1.COUNTRY }}</span>
+                      </div>
+                      <div class="info-item">
+                        <span class="label">Coordinates:</span>
+                        <span class="value">{{ "%.4f"|format(port1.LATITUDE) }}, {{ "%.4f"|format(port1.LONGITUDE) }}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="info-item">
-                    <span class="label">State:</span>
-                    <span class="value">{{ port1.STATE }}</span>
-                  </div>
-                  <div class="info-item">
-                    <span class="label">Country:</span>
-                    <span class="value">{{ port1.COUNTRY }}</span>
-                  </div>
-                  <div class="info-item">
-                    <span class="label">Coordinates:</span>
-                    <span class="value">{{ "%.4f"|format(port1.LATITUDE) }}, {{ "%.4f"|format(port1.LONGITUDE) }}</span>
-                  </div>
-                </div>
-              </div>
-            {% else %}
-              <div class="no-match">{{ result1 }}</div>
-            {% endif %}
-          {% else %}
-            <div class="placeholder">Enter origin port details and search</div>
-          {% endif %}
-        </div>
-      </div>
+                {% else %}
+                  <div class="no-match">{{ result1 }}</div>
+                {% endif %}
+              {% else %}
+                <div class="placeholder">Enter origin port details</div>
+              {% endif %}
+            </div>
+          </div>
 
-      <div class="port-card destination-port">
-        <h3>Destination Port</h3>
-        <div class="port-content">
-          {% if result2 %}
-            {% if result2 != "No match found for Port 2." %}
-              <div class="port-details">
-                {% set port2 = result2 | from_json %}
-                <div class="port-info-grid">
-                  <div class="info-item">
-                    <span class="label">City:</span>
-                    <span class="value">{{ port2.CITY }}</span>
+          <div class="port-section destination-section">
+            <h4>Destination Port</h4>
+            <div class="port-content">
+              {% if result2 %}
+                {% if result2 != "No match found for Port 2." %}
+                  <div class="port-details">
+                    {% set port2 = result2 | from_json %}
+                    <div class="port-info-grid">
+                      <div class="info-item">
+                        <span class="label">City:</span>
+                        <span class="value">{{ port2.CITY }}</span>
+                      </div>
+                      <div class="info-item">
+                        <span class="label">State:</span>
+                        <span class="value">{{ port2.STATE }}</span>
+                      </div>
+                      <div class="info-item">
+                        <span class="label">Country:</span>
+                        <span class="value">{{ port2.COUNTRY }}</span>
+                      </div>
+                      <div class="info-item">
+                        <span class="label">Coordinates:</span>
+                        <span class="value">{{ "%.4f"|format(port2.LATITUDE) }}, {{ "%.4f"|format(port2.LONGITUDE) }}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="info-item">
-                    <span class="label">State:</span>
-                    <span class="value">{{ port2.STATE }}</span>
-                  </div>
-                  <div class="info-item">
-                    <span class="label">Country:</span>
-                    <span class="value">{{ port2.COUNTRY }}</span>
-                  </div>
-                  <div class="info-item">
-                    <span class="label">Coordinates:</span>
-                    <span class="value">{{ "%.4f"|format(port2.LATITUDE) }}, {{ "%.4f"|format(port2.LONGITUDE) }}</span>
-                  </div>
-                </div>
-              </div>
-            {% else %}
-              <div class="no-match">{{ result2 }}</div>
-            {% endif %}
-          {% else %}
-            <div class="placeholder">Enter destination port details and search</div>
-          {% endif %}
+                {% else %}
+                  <div class="no-match">{{ result2 }}</div>
+                {% endif %}
+              {% else %}
+                <div class="placeholder">Enter destination port details</div>
+              {% endif %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
