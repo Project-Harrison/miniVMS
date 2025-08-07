@@ -57,7 +57,7 @@ def index():
 
             if route and "geometry" in route:
                 coords = [[lat, lon] for lon, lat in route["geometry"]["coordinates"]]
-                folium.PolyLine(locations=coords, color="blue", weight=1).add_to(m)
+                folium.PolyLine(locations=coords, color="blue", weight=3).add_to(m)
 
                 length_nm = route["properties"]["length"]
                 distance = f"{length_nm:.1f} nautical miles"

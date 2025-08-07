@@ -128,6 +128,19 @@
             <div class="distance-info">
               <span class="distance-value">{{ distance }}</span>
             </div>
+            {% if travel_times %}
+              <div class="travel-times">
+                <h4>Travel Times</h4>
+                <div class="time-grid">
+                  {% for speed, time in travel_times.items() %}
+                    <div class="time-item">
+                      <span class="speed">{{ speed }}kn</span>
+                      <span class="time">{{ time }}</span>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
           {% else %}
             <div class="placeholder">Calculate route to see distance and travel times</div>
           {% endif %}
