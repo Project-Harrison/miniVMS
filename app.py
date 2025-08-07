@@ -5,6 +5,13 @@ from difflib import get_close_matches
 
 app = Flask(__name__)
 
+@app.template_filter('from_json')
+def from_json_filter(value):
+    """Template filter to parse JSON strings"""
+    if isinstance(value, str) and value.startswith('{'):
+        return json.loads(value)
+    return value
+
 with open("ports.json") as f:
     ports = json.load(f)
 

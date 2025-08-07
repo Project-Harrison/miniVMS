@@ -1,65 +1,176 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Port Finder</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<div class="layout-vertical">
-  <div class="form-container">
-    <h1>Find Two Ports</h1>
-    <form method="POST">
-      <div class="input-row">
-        <div class="input-group">
-          <label>City 1</label>
-          <input type="text" name="city1" required>
+<div class="container">
+  <div class="header">
+    <h1>Maritime Port Route Finder</h1>
+    <p>Find ports and calculate shipping routes between any two maritime locations worldwide</p>
+  </div>
+
+  <div class="main-layout">
+    <!-- Left Column: Form -->
+    <div class="form-section">
+      <div class="form-container">
+        <h2>Enter Port Information</h2>
+        <form method="POST">
+          <div class="port-group">
+            <h3>Origin Port</h3>
+            <div class="input-row">
+              <div class="input-group">
+                <label for="city1">City</label>
+                <input type="text" id="city1" name="city1" placeholder="e.g., Rotterdam" required>
+              </div>
+              <div class="input-group">
+                <label for="country1">Country (Optional)</label>
+                <input type="text" id="country1" name="country1" placeholder="e.g., Netherlands">
+              </div>
+            </div>
+          </div>
+
+          <div class="port-group">
+            <h3>Destination Port</h3>
+            <div class="input-row">
+              <div class="input-group">
+                <label for="city2">City</label>
+                <input type="text" id="city2" name="city2" placeholder="e.g., Singapore" required>
+              </div>
+              <div class="input-group">
+                <label for="country2">Country (Optional)</label>
+                <input type="text" id="country2" name="country2" placeholder="e.g., Singapore">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="search-btn">Calculate Route</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Column: Results -->
+    <div class="results-section">
+      <!-- Port Information Cards -->
+      <div class="port-results">
+        <div class="port-card origin-port">
+          <h3>Origin Port</h3>
+          <div class="port-content">
+            {% if result1 %}
+              {% if result1 != "No match found for Port 1." %}
+                <div class="port-details">
+                  {% set port1 = result1 | from_json %}
+                  <div class="port-info-grid">
+                    <div class="info-item">
+                      <span class="label">City:</span>
+                      <span class="value">{{ port1.CITY }}</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="label">State:</span>
+                      <span class="value">{{ port1.STATE }}</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="label">Country:</span>
+                      <span class="value">{{ port1.COUNTRY }}</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="label">Coordinates:</span>
+                      <span class="value">{{ "%.4f"|format(port1.LATITUDE) }}, {{ "%.4f"|format(port1.LONGITUDE) }}</span>
+                    </div>
+                  </div>
+                </div>
+              {% else %}
+                <div class="no-match">{{ result1 }}</div>
+              {% endif %}
+            {% else %}
+              <div class="placeholder">Enter origin port details and search to see results</div>
+            {% endif %}
+          </div>
         </div>
-        <div class="input-group">
-          <label>Country 1</label>
-          <input type="text" name="country1">
+
+        <div class="port-card destination-port">
+          <h3>Destination Port</h3>
+          <div class="port-content">
+            {% if result2 %}
+              {% if result2 != "No match found for Port 2." %}
+                <div class="port-details">
+                  {% set port2 = result2 | from_json %}
+                  <div class="port-info-grid">
+                    <div class="info-item">
+                      <span class="label">City:</span>
+                      <span class="value">{{ port2.CITY }}</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="label">State:</span>
+                      <span class="value">{{ port2.STATE }}</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="label">Country:</span>
+                      <span class="value">{{ port2.COUNTRY }}</span>
+                    </div>
+                    <div class="info-item">
+                      <span class="label">Coordinates:</span>
+                      <span class="value">{{ "%.4f"|format(port2.LATITUDE) }}, {{ "%.4f"|format(port2.LONGITUDE) }}</span>
+                    </div>
+                  </div>
+                </div>
+              {% else %}
+                <div class="no-match">{{ result2 }}</div>
+              {% endif %}
+            {% else %}
+              <div class="placeholder">Enter destination port details and search to see results</div>
+            {% endif %}
+          </div>
         </div>
       </div>
-      <div class="input-row">
-        <div class="input-group">
-          <label>City 2</label>
-          <input type="text" name="city2" required>
-        </div>
-        <div class="input-group">
-          <label>Country 2</label>
-          <input type="text" name="country2">
+
+      <!-- Route Information -->
+      <div class="route-info-card">
+        <h3>Route Information</h3>
+        <div class="route-content">
+          {% if distance %}
+            <div class="distance-info">
+              <div class="distance-display">
+                <span class="distance-value">{{ distance }}</span>
+              </div>
+              <div class="travel-times">
+                <h4>Estimated Travel Times</h4>
+                <div class="time-grid">
+                  {% for speed, time in travel_times.items() %}
+                    <div class="time-item">
+                      <span class="speed">{{ speed }} knots</span>
+                      <span class="duration">{{ time }}</span>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% else %}
+            <div class="placeholder">Calculate a route to see distance and travel time estimates</div>
+          {% endif %}
         </div>
       </div>
-      <button type="submit">Search</button>
-    </form>
+    </div>
   </div>
 
-  <div class="output-container">
-    {% if result1 %}
-      <h2>Port 1:</h2>
-      <pre>{{ result1 }}</pre>
-    {% endif %}
-    {% if result2 %}
-      <h2>Port 2:</h2>
-      <pre>{{ result2 }}</pre>
-    {% endif %}
+  <!-- Map Section -->
+  <div class="map-section">
+    <h3>Route Map</h3>
+    <div class="map-container">
+      {% if map_html %}
+        <div class="map-wrapper">{{ map_html|safe }}</div>
+      {% else %}
+        <div class="map-placeholder">
+          <div class="map-placeholder-content">
+            <p>🗺️</p>
+            <p>Interactive map will appear here after calculating a route</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
   </div>
-
-  {% if distance %}
-  <h2>Distance: {{ distance }}</h2>
-  <ul>
-    {% for speed, time in travel_times.items() %}
-      <li>Speed {{ speed }} knots: {{ time }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
-
-  {% if map_html %}
-  <div class="map-container">
-    <h2>Port Map</h2>
-    <div class="map-wrapper">{{ map_html|safe }}</div>
-  </div>
-  {% endif %}
 </div>
 
 </body>
