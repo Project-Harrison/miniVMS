@@ -5,7 +5,7 @@ from difflib import get_close_matches
 
 app = Flask(__name__)
 
-with open("/Users/jordantaylor/miniVMS/miniVMS/ports.json") as f:
+with open("ports.json") as f:
     ports = json.load(f)
 
 def find_port(city, country=None, cutoff=0.8):
